@@ -1,8 +1,20 @@
-<h1>Seja bem vindo ao curso de Angular</h1>
-<div class="row">
-<div class="col">
-  <img class="img-fluid" src="assets/img/logo_horacio.png" />
+<h1>Seja bem vindo ao curso de Angular!</h1>
+<h4 class="text-danger">{{ anuncio }}</h4>
+
+<div class="card" style="width: 18rem;">
+  <img [src]="foto" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">
+      {{ nomeProduto | uppercase }}
+      <span *ngIf="promocao == true; else elseBlock " class="badge badge-success">Promoção</span>
+      <ng-template #elseBlock>
+        <span class="badge badge-success">Promoção</span>
+      </ng-template>
+    </h5>
+    <p class="card-text">Identificação: {{idProduto | number:'2.0-0'}}<br>
+    Validade: {{dataValidade | date: 'dd/MM/yyyy'}}
+    </p>
+    <a href="#" class="btn btn-primary float-right">{{precoProduto | currency: "BRL"}}</a>
+  </div>
 </div>
-<div class="col">
-  <img class="img-fluid" src="assets/img/crud.png" />
-</div>
+
